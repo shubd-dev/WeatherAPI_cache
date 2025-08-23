@@ -11,14 +11,9 @@ public class weatherData {
 
     private JsonNode rawData;
 
-    @Override
-    public String toString() {
-        return "weatherData{" +
-                "address='" + address + '\'' +
-                ", epoch=" + epoch +
-                ", temp=" + temp +
-                '}';
-    }
+
+
+    public weatherData() {}
 
     public weatherData(String address, Long epoch, Double temp) {
         this.address = address;
@@ -48,5 +43,14 @@ public class weatherData {
 
     public void setTemp(Double temp) {
         this.temp = temp;
+    }
+
+    @Override
+    public String toString() {
+        return "weatherData{" +
+                "address='" + address + '\'' +
+                ", epoch=" + epoch +
+                ", temp=" + temp +
+                '}';
     }
 }

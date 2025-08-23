@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.weatherApiCache.WeatherAPI_cache.model.weatherData;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -24,11 +25,15 @@ public class weatherService {
     weatherData weatherOfCity;
     String response;
 
+
     public weatherService(RestClient.Builder restClientBuilder){
         this.restClient = restClientBuilder.baseUrl(apiUrl).build();
     }
 
+    @Cacheable(value = "weatherCache", key = "#name")
     public weatherData getWeatherData(String name) throws JsonProcessingException {
+
+
 
         String url = UriComponentsBuilder.fromUriString(apiUrl)
                 .pathSegment(name)
@@ -56,7 +61,6 @@ public class weatherService {
                 rootNode.get("currentConditions").get("datetimeEpoch").asLong(),
                 rootNode.get("currentConditions").get("temp").asDouble()
         );
-
         return weatherOfCity;
 
     }

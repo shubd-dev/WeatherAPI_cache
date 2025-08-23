@@ -25,8 +25,8 @@ public class WeatherController {
     public ResponseEntity<weatherData> getWeatherByCity(@PathVariable String city) throws JsonProcessingException {
         weatherData data = weatherService.getWeatherData(city);
 
-        //to handle 404 responses
-        if(data == null){
+        // to handle 404 responses
+        if (data == null) {
             return ResponseEntity.notFound().build();
         }
 
