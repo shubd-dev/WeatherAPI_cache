@@ -7,7 +7,7 @@ This is a Spring Boot application that fetches weather data for cities using the
 
 ## Technologies Used
 - Java 17
-- Spring Boot 3.x
+- Spring Boot 3
 - Spring Data Redis
 - Redis (in-memory cache)
 - Visual Crossing Timeline Weather API
@@ -20,7 +20,6 @@ This is a Spring Boot application that fetches weather data for cities using the
 
 1. **Prerequisites:**
    - Java JDK 17+
-   - Maven 3+
    - Redis server running locally or remotely
    - Visual Crossing API key
 
